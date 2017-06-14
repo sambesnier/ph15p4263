@@ -6,3 +6,4 @@
  * Time: 14:51
  */
 
+echo "Impossible d'afficher la page";
