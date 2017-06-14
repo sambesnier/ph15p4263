@@ -6,4 +6,8 @@
  * Time: 14:29
  */
 
-echo "accueil";
+$pageTitle = 'Bienvenue sur mon site';
+
+$content = '<h1>Accueil</h1>';
+
+require ROOT_PATH.'/src/views/layout.php';
