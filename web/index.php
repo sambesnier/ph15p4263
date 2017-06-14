@@ -9,6 +9,17 @@
 // Récupération du contrôleur
 $controllerName = $_GET['controller'];
 
+// Définition du dossier racine du projet
 define('ROOT_PATH', dirname(__DIR__));
 
-require ROOT_PATH.'/src/controllers/'.$controllerName.'.php';
+// Définition du chemin du contrôleur
+$controllerPath = ROOT_PATH.'/src/controllers/'.$controllerName.'.php';
+
+// Test de l'existence du contrôleur
+if(! file_exists($controllerPath)) {
+    // Envoi vers le fichier erreur
+    $controllerPath = ROOT_PATH.'/src/controllers/erreur.php';
+}
+
+// Éxecution du contrôleur
+require $controllerPath;
