@@ -6,8 +6,10 @@
  * Time: 14:29
  */
 
-$pageTitle = 'Bienvenue sur mon site';
-
-$content = '<h1>Accueil</h1>';
-
-require ROOT_PATH.'/src/views/layout.php';
+// Appel de la fontion renderView
+renderView('accueil',
+    [
+        'pageTitle' => 'Bienvenue sur mon site',
+        'now' => date('l jS \of F Y h:i:s A')
+    ]
+);
