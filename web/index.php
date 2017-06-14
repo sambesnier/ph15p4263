@@ -7,7 +7,12 @@
  */
 
 // Récupération du contrôleur
-$controllerName = $_GET['controller'];
+if( isset($_GET['controller']) ) {
+    $controllerName = $_GET['controller'];
+}
+else {
+    $controllerName = 'accueil';
+}
 
 // Définition du dossier racine du projet
 define('ROOT_PATH', dirname(__DIR__));
