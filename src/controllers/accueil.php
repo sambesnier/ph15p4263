@@ -7,7 +7,8 @@
  */
 
 // Appel de la fontion renderView
-renderView('accueil',
+renderView(
+    'accueil',
     [
         'pageTitle' => 'Bienvenue sur mon site',
         'now' => date('l jS \of F Y h:i:s A')

@@ -1,0 +1,22 @@
+{
+  "name": "projet-web",
+  "homepage": "https://github.com/sambesnier/php-projet-web",
+  "authors": [
+    "Samuel Besnier <sbesnier1901@gmail.com>"
+  ],
+  "description": "Un projet pour une première approche du développement web moderne",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/dependancies",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
