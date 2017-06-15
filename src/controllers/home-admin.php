@@ -10,6 +10,6 @@
 renderView(
     'home-admin',
     [
-        'pageTitle' => 'Bienvenue sur l\'interface d\'administration'
+        'pageTitle' => 'Interface d\'administration'
     ]
 );

@@ -41,7 +41,17 @@
                     <li><a href="#">Link</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/?controller=login-admin">Accès admin</a></li>
+                    <?php
+                        $role = isset($_SESSION["role"])?$_SESSION["role"]:"";
+                        $userName = isset($_SESSION["userName"])?$_SESSION["userName"]:"Invité";
+                    ?>
+                    <li class="navbar-text">Bonjour <?= $userName ?></li>
+                    <?php if ($role == "admin") : ?>
+                        <li><a href="/?controller=home-admin">Accès admin</a></li>
+                        <li><a href="/?controller=logout">Déconnexion</a></li>
+                    <?php else : ?>
+                        <li><a href="/?controller=login-admin">Connexion admin</a></li>
+                    <?php endif; ?>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

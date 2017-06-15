@@ -43,6 +43,10 @@ if ($isSubmitted) {
         $ok = $login == "admin" && $password == "123";
 
         if ($ok) {
+            // Définition des variables de session
+            $_SESSION['role'] = 'admin';
+            $_SESSION['userName'] = 'Administrateur';
+
             // Redirection
             header(
                 "location:/?controller=home-admin"

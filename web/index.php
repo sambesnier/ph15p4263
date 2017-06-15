@@ -6,12 +6,33 @@
  * Time: 14:20
  */
 
+// Démarrage de la session
+session_start();
+
 // Récupération du contrôleur
 if( isset($_GET['controller']) ) {
     $controllerName = $_GET['controller'];
 }
 else {
     $controllerName = 'accueil';
+}
+
+// Sécurisation l'accès à l'administration
+session_regenerate_id(true);
+
+$securedRoutes =
+    [
+        "home-admin"
+    ];
+
+$role = isset($_SESSION["role"])?$_SESSION["role"]:"";
+
+// Si on tente d'accéder à une page sécurisée sans s'être identifié au
+// au préalable alors la route est modifiée pour afficher le formulaire de login
+if (in_array($controllerName, $securedRoutes) && $role != "admin") {
+    header(
+        "location:/?controller=login-admin"
+    );
 }
 
 // Définition du dossier racine du projet
