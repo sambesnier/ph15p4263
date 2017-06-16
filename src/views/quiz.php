@@ -35,9 +35,10 @@
             </p>
         <?php endif; ?>
         <div class="form-group">
-        <?php foreach ($ask['reponses'][0] as $key => $rep) : ?>
-            <input type="radio" name="question<?= $num+1 ?>" value="<?= $key ?>" required> <?= $rep ?><br>
-        <?php endforeach; ?>
+
+        <?php for ($i = 1 ; $i <= count($ask['reponses']); $i++) : ?>
+            <input type="radio" name="question<?= $num+1 ?>" value="<?= $i ?>" required> <?= $ask['reponses'][$i-1][$i] ?><br>
+        <?php endfor; ?>
         </div>
     <?php endforeach; ?>
     <div class="form-group">

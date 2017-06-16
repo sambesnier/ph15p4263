@@ -6,8 +6,12 @@
               "reponses":
                       [
                         {
-                          "1": "Boris Karloff",
-                          "2": "Jack Palence",
+                          "1": "Boris Karloff"
+                        },
+                        {
+                          "2": "Jack Palence"
+                        },
+                        {
                           "3": "Christopher Lee"
                         }
                       ],
@@ -18,8 +22,12 @@
               "reponses":
               [
                 {
-                  "1": "Nostromo",
-                  "2": "Enterprise",
+                  "1": "Nostromo"
+                },
+                {
+                  "2": "Enterprise"
+                },
+                {
                   "3": "X-Wing"
                 }
               ],
@@ -30,8 +38,12 @@
               "reponses":
               [
                 {
-                  "1": "Marilyn Manson",
-                  "2": "Iggy Pop",
+                  "1": "Marilyn Manson"
+                },
+                {
+                  "2": "Iggy Pop"
+                },
+                {
                   "3": "Rob Zombie"
                 }
               ],
@@ -42,8 +54,12 @@
               "reponses":
               [
                 {
-                  "1": "Spaceman",
-                  "2": "E.T",
+                  "1": "Spaceman"
+                },
+                {
+                  "2": "E.T"
+                },
+                {
                   "3": "Le martien"
                 }
               ],
