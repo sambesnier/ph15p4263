@@ -37,12 +37,16 @@
         <div class="form-group">
 
         <?php for ($i = 1 ; $i <= count($ask['reponses']); $i++) : ?>
-            <input type="radio" name="question<?= $num+1 ?>" value="<?= $i ?>" required> <?= $ask['reponses'][$i-1][$i] ?><br>
+            <?php if(!empty($correction)) : ?>
+                <input type="radio" name="question<?= $num+1 ?>" value="<?= $i ?>" <?= ($correction[$num]['reponse']['valueRightAnswer'] == $i)?"checked":"" ?> required> <?= $ask['reponses'][$i-1][$i] ?><br>
+            <?php else : ?>
+                <input type="radio" name="question<?= $num+1 ?>" value="<?= $i ?>" required> <?= $ask['reponses'][$i-1][$i] ?><br>
+            <?php endif; ?>
         <?php endfor; ?>
         </div>
     <?php endforeach; ?>
     <div class="form-group">
-        <button type="submit" name="submit" class="btn btn-success">Ajouter</button>
+        <button type="submit" name="submit" class="btn btn-success">Valider</button>
     </div>
 </form>
 <?php if (count($errors) > 0) : ?>

@@ -36,7 +36,8 @@ if ($isSubmitted) {
 				"reponse" => 
 				[
 					"good" => "no", 
-					"rightAnswer" => $rightAnswer, 
+					"rightAnswer" => $rightAnswer,
+                    "valueRightAnswer" => $indexRightAnswer,
 					"question" => $i+1
 				] 
 			];
@@ -46,7 +47,8 @@ if ($isSubmitted) {
 				"reponse" => 
 				[
 					"good" => "yes", 
-					"rightAnswer" => $rightAnswer, 
+					"rightAnswer" => $rightAnswer,
+                    "valueRightAnswer" => $indexRightAnswer,
 					"question" => $i+1
 				] 
 			];
