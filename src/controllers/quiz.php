@@ -37,7 +37,7 @@ if ($isSubmitted) {
 				[
 					"good" => "no", 
 					"rightAnswer" => $rightAnswer,
-                    "valueRightAnswer" => $indexRightAnswer,
+                    "userAnswer" => $_POST['question'.($i+1)],
 					"question" => $i+1
 				] 
 			];
@@ -48,7 +48,7 @@ if ($isSubmitted) {
 				[
 					"good" => "yes", 
 					"rightAnswer" => $rightAnswer,
-                    "valueRightAnswer" => $indexRightAnswer,
+                    "userAnswer" => $_POST['question'.($i+1)],
 					"question" => $i+1
 				] 
 			];
