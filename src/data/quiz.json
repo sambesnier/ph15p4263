@@ -5,15 +5,9 @@
               "question": "Le quel de ces acteurs n'a jamais joué Dracula ?",
               "reponses":
                       [
-                        {
-                          "1": "Boris Karloff"
-                        },
-                        {
-                          "2": "Jack Palence"
-                        },
-                        {
-                          "3": "Christopher Lee"
-                        }
+                        "Boris Karloff",
+                        "Jack Palence",
+                        "Christopher Lee"
                       ],
               "bonneReponse": "1"
             },
@@ -21,31 +15,19 @@
               "question": "Comment s'appelle le vaisseau spatial où se déroule l'action d'Alien 1 ?",
               "reponses":
               [
-                {
-                  "1": "Nostromo"
-                },
-                {
-                  "2": "Enterprise"
-                },
-                {
-                  "3": "X-Wing"
-                }
+                "Nostromo",
+                "Enterprise",
+                "X-Wing"
               ],
               "bonneReponse": "1"
             },
             {
-              "question": "Quel chanteur de rock devenu réalisateur a récemment remis au goût de jour Halloween 1 et 2 ?",
+              "question": "Quel chanteur de rock devenu réalisateur a récemment remis au goût du jour Halloween 1 et 2 ?",
               "reponses":
               [
-                {
-                  "1": "Marilyn Manson"
-                },
-                {
-                  "2": "Iggy Pop"
-                },
-                {
-                  "3": "Rob Zombie"
-                }
+                "Marilyn Manson",
+                "Iggy Pop",
+                "Rob Zombie"
               ],
               "bonneReponse": "3"
             },
@@ -53,15 +35,9 @@
               "question": "Comment est surnommé l'agent Fox Mulder par ses collègues dans la série X-Files ?",
               "reponses":
               [
-                {
-                  "1": "Spaceman"
-                },
-                {
-                  "2": "E.T"
-                },
-                {
-                  "3": "Le martien"
-                }
+                "Spaceman",
+                "E.T",
+                "Le martien"
               ],
               "bonneReponse": "3"
             }

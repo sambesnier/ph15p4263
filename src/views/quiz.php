@@ -38,9 +38,9 @@
 
         <?php for ($i = 1 ; $i <= count($ask['reponses']); $i++) : ?>
             <?php if(!empty($correction)) : ?>
-                <input type="radio" name="question<?= $num+1 ?>" value="<?= $i ?>" <?= ($correction[$num]['reponse']['userAnswer'] == $i)?"checked":"" ?> required> <?= $ask['reponses'][$i-1][$i] ?><br>
+                <input type="radio" name="question<?= $num+1 ?>" value="<?= $i ?>" <?= ($correction[$num]['reponse']['userAnswer'] == $i)?"checked":"" ?> required> <?= $ask['reponses'][$i-1] ?><br>
             <?php else : ?>
-                <input type="radio" name="question<?= $num+1 ?>" value="<?= $i ?>" required> <?= $ask['reponses'][$i-1][$i] ?><br>
+                <input type="radio" name="question<?= $num+1 ?>" value="<?= $i ?>" required> <?= $ask['reponses'][$i-1] ?><br>
             <?php endif; ?>
         <?php endfor; ?>
         </div>

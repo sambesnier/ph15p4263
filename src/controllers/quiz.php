@@ -28,7 +28,7 @@ if ($isSubmitted) {
 	$score = 0;
 	for ($i=0; $i < $size; $i++) { 
 		$indexRightAnswer = $data['quiz'][$i]['bonneReponse'];
-		$rightAnswer = $data['quiz'][$i]['reponses'][$indexRightAnswer-1][$indexRightAnswer];
+		$rightAnswer = $data['quiz'][$i]['reponses'][$indexRightAnswer-1];
 
 		if($indexRightAnswer != $_POST['question'.($i+1)]) {
 			$correction[] = 
