@@ -67,6 +67,6 @@ renderView(
         'pageTitle' => 'Quiz',
         'quiz' => $data['quiz'],
         'errors' => $errors,
-        'correction' => $correction ?? []
+        'correction' => $correction
     ]
 );

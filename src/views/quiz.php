@@ -11,14 +11,16 @@
 
 <h2>Questions</h2>
 
-<?php if (!empty($correction) && end($correction)['score'] != 0) : ?>
+<?php if (!empty($correction)) : ?>
+    <?php if( end($correction)['score'] != 0) : ?>
     <div class="alert alert-success">
         Félicitations, vous avez obtenu un score de <?= end($correction)['score'] ?>/<?= end($correction)['total'] ?> !
     </div>
-<?php else : ?>
+    <?php else : ?>
     <div class="alert alert-danger">
         Dommage, vous avez obtenu un score de <?= end($correction)['score'] ?>/<?= end($correction)['total'] ?> !
     </div>
+    <?php endif; ?>
 <?php endif; ?>
 
 <form method="post">
