@@ -48,3 +48,19 @@ function renderView(
 
     echo $result;
 }
+
+/**
+ * Fonction de connexion à une base de données avec
+ * la bibliothèque PDO
+ * @return PDO
+ */
+function getPDO() {
+    $options = [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    ];
+
+    return new PDO(
+        DSN,
+        DB_USER,
+        DB_PASS, $options);
+}
