@@ -12,6 +12,7 @@
         <label><?= $pageTitle ?></label>
         <input type="text" name="matiere" class="form-control" value="<?= empty($value)?"":$value ?>" required>
         <input type="text" name="matiere_name" class="hidden" value="<?= empty($value)?"":$value ?>">
+        <input type="hidden" name="token" value="<?= $token ?>">
     </div>
     <div class="form-group">
         <button type="submit" name="submit" class="btn btn-success"><?= $action ?></button>

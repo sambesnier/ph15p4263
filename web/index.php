@@ -22,7 +22,8 @@ session_regenerate_id(true);
 
 $securedRoutes =
     [
-        "home-admin"
+        "home-admin",
+        "matiere"
     ];
 
 $role = isset($_SESSION["role"])?$_SESSION["role"]:"";

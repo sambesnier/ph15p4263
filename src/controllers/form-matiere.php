@@ -32,19 +32,25 @@ $isSubmitted = filter_has_var(
 );
 
 if ($isSubmitted) {
-    if (empty($matiere_name)) {
-        // Nouvelle matière
-        var_dump('new');
-        $sql = "INSERT INTO matieres (matiere) VALUES (:matiere)";
-        $statement = $connexion->prepare($sql);
-        $statement->execute(['matiere' => $matiere]);
-        $_SESSION["flash"] = "Matière bien ajoutée";
-    } else {
-        // Modification de matière
-        $sql = "UPDATE matieres SET matiere=:matiere WHERE matiere=:name";
-        $statement = $connexion->prepare($sql);
-        $statement->execute(['matiere' => $matiere, 'name' => $matiere_name]);
-        $_SESSION["flash"] = "Matière modifiée";
+    $token = filter_input(INPUT_POST, 'token', FILTER_DEFAULT);
+    $valid = $valid & ($token == $_SESSION['token']);
+    try {
+        if (empty($matiere_name)) {
+            // Nouvelle matière
+            var_dump('new');
+            $sql = "INSERT INTO matieres (matiere) VALUES (:matiere)";
+            $statement = $connexion->prepare($sql);
+            $statement->execute(['matiere' => $matiere]);
+            $_SESSION["flash"] = "Matière bien ajoutée";
+        } else {
+            // Modification de matière
+            $sql = "UPDATE matieres SET matiere=:matiere WHERE matiere=:name";
+            $statement = $connexion->prepare($sql);
+            $statement->execute(['matiere' => $matiere, 'name' => $matiere_name]);
+            $_SESSION["flash"] = "Matière modifiée";
+        }
+    } catch (PDOException $e) {
+        $_SESSION["flash"] = "Requête impossible";
     }
     header("location:/?controller=matiere");
 }
@@ -58,6 +64,11 @@ if($itemUpdate >0){
     $action = "Modifier";
 }
 
+// Génération d'un token de protection contre les attaques CSRF
+// Cross Site Request Forgery
+$token = uniqid();
+$_SESSION['token'] = $token;
+
 // Appel de la fontion renderView
 renderView(
     'form-matiere',
@@ -65,6 +76,7 @@ renderView(
         'pageTitle' => $title,
         'action' => $action,
         'value' => $itemName,
+        'id' => $token,
         'errors' => $errors
     ]
 );
