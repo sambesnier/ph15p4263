@@ -51,6 +51,7 @@ if ($isSubmitted && !$isClicked) {
         file_put_contents($filePath, json_encode($data));
         // Redirection pour éviter de reposter les données
         header("location:/?controller=home-admin");
+        exit();
     } else {
         $errors[] = "Cette compétence existe déjà";
     }
@@ -62,6 +63,7 @@ if ($isClicked) {
     $data = json_encode($data);
     file_put_contents($filePath, $data);
     header("location:/?controller=home-admin");
+    exit();
 }
 
 // Récupération des données sous la forme d'un tableau

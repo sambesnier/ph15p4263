@@ -37,6 +37,7 @@ if (array_key_exists($controllerName, $securedRoutes) && $role != $securedRoutes
     header(
         "location:/?controller=login"
     );
+    exit();
 }
 
 // Définition du dossier racine du projet

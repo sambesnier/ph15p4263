@@ -27,4 +27,5 @@ if(!empty($itemDelete)){
 
     //Redirection pour éviter de reposter les données
     header("location:/?controller=matiere");
+    exit();
 }

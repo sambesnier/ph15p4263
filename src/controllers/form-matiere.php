@@ -53,6 +53,7 @@ if ($isSubmitted) {
         $_SESSION["flash"] = "Requête impossible";
     }
     header("location:/?controller=matiere");
+    exit();
 }
 
 // Gestion de la modification d'une matière

@@ -70,6 +70,7 @@ if ($isSubmitted) {
             //Redirection vers la page d'accueil
             $_SESSION["flash"] = "Vous êtes inscrit vous pouvez maintenant vous identifier";
             header("location:index.php?controller=accueil");
+            exit();
 
         }//Fin insertion des données
     } catch (PDOException $e) {
