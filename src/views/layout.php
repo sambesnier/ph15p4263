@@ -46,8 +46,10 @@
                         $userName = isset($_SESSION["userName"])?$_SESSION["userName"]:"Invité";
                     ?>
                     <li class="navbar-text">Bonjour <?= $userName ?></li>
-                    <?php if ($role == "admin") : ?>
-                        <li><a href="/?controller=home-admin">Accès admin</a></li>
+                    <?php if (!empty($role)) : ?>
+                        <?php if ($role == 'admin') : ?>
+                            <li><a href="/?controller=home-admin">Accès admin</a></li>
+                        <?php endif; ?>
                         <li><a href="/?controller=logout">Déconnexion</a></li>
                     <?php else : ?>
                         <li><a href="/?controller=login">Connexion</a></li>
@@ -57,6 +59,19 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
+
+    <!-- Affichage des mesages flash -->
+    <?php if (isset($_SESSION['flash'])) : ?>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 alert alert-info">
+                <?php
+                echo $_SESSION["flash"];
+
+                unset($_SESSION["flash"]);
+                ?>
+            </div>
+        </div>
+    <?php endif; ?>
 
     <!-- Contenu de l'application -->
     <section class="row">

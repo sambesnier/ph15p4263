@@ -40,16 +40,37 @@ if ($isSubmitted) {
 
     // Traitement des données s'il n'y a pas d'erreur
     if (count($errors) == 0) {
-        $ok = $login == "admin" && $password == "123";
+        // Connexion à la base de données pour vérifier l'authentification
+        $connexion = getPDO();
+        $sql = "SELECT CONCAT_WS(' ',p.prenom, p.nom) AS username, u.role
+                FROM utilisateurs AS u INNER JOIN personnes AS p
+                ON p.personne_id=u.personne_id
+                WHERE u.email=? AND u.mot_de_passe=?";
+
+        $statement = $connexion->prepare($sql);
+
+        $statement->execute([$login, sha1($password)]);
+
+        $rs = $statement->fetch(PDO::FETCH_ASSOC);
+
+        $ok = count($rs) > 0;
 
         if ($ok) {
             // Définition des variables de session
-            $_SESSION['role'] = 'admin';
-            $_SESSION['userName'] = 'Administrateur';
+            $_SESSION['role'] = $rs['role'];
+            $_SESSION['userName'] = $rs['username'];
+
+            $redirections = [
+                "admin" => "home-admin",
+                "stagiaire" => "home-stagiaire",
+                "formateur" => "home-formateur"
+            ];
+
+            $cible = $redirections[$rs['role']] ?? "accueil";
 
             // Redirection
             header(
-                "location:/?controller=home-admin"
+                "location:/?controller=$cible"
             );
         } else {
             $errors[] = "Vos informations d'identification sont incorrectes";

@@ -22,15 +22,18 @@ session_regenerate_id(true);
 
 $securedRoutes =
     [
-        "home-admin",
-        "matiere"
+        "home-admin" => "admin",
+        "matiere" => "admin",
+        "home-formateur" => "formateur",
+        "home-stagiaire" => "stagiaire"
     ];
 
 $role = isset($_SESSION["role"])?$_SESSION["role"]:"";
 
 // Si on tente d'accéder à une page sécurisée sans s'être identifié au
 // au préalable alors la route est modifiée pour afficher le formulaire de login
-if (in_array($controllerName, $securedRoutes) && $role != "admin") {
+if (array_key_exists($controllerName, $securedRoutes) && $role != $securedRoutes[$controllerName]) {
+    $_SESSION['flash'] = "Vous n'avez pas les droits pour accéder à cette page";
     header(
         "location:/?controller=login"
     );
