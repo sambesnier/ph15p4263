@@ -32,7 +32,7 @@ $role = isset($_SESSION["role"])?$_SESSION["role"]:"";
 // au préalable alors la route est modifiée pour afficher le formulaire de login
 if (in_array($controllerName, $securedRoutes) && $role != "admin") {
     header(
-        "location:/?controller=login-admin"
+        "location:/?controller=login"
     );
 }
 

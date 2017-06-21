@@ -50,7 +50,7 @@
                         <li><a href="/?controller=home-admin">Accès admin</a></li>
                         <li><a href="/?controller=logout">Déconnexion</a></li>
                     <?php else : ?>
-                        <li><a href="/?controller=login-admin">Connexion admin</a></li>
+                        <li><a href="/?controller=login">Connexion</a></li>
                         <li><a href="/?controller=inscription">Inscription</a></li>
                     <?php endif; ?>
                 </ul>

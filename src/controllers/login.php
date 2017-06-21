@@ -59,7 +59,7 @@ if ($isSubmitted) {
 
 // Appel de la fontion renderView
 renderView(
-    'login-admin',
+    'login',
     [
         'pageTitle' => 'Login administration',
         'errors' =>$errors,
