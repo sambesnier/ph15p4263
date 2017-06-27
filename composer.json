@@ -9,7 +9,8 @@
         }
     ],
     "require": {
-        "php": ">=7.1.0"
+        "php": ">=7.1.0",
+        "katzgrau/klogger": "^1.2"
     },
     "require-dev": {
         "phpunit/phpunit":"6.2.*"
@@ -17,6 +18,9 @@
     "autoload": {
         "classmap": [
             "src/classes"
-        ]
+        ],
+        "psr-4": {
+            "m2i\\web\\": "src/classes"
+        }
     }
 }

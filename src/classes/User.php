@@ -1,5 +1,7 @@
 <?php
 
+namespace m2i\web;
+
 /**
  * Created by PhpStorm.
  * User: Samuel Besnier

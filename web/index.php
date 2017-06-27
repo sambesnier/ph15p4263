@@ -12,11 +12,17 @@ session_start();
 // Définition du dossier racine du projet
 define('ROOT_PATH', dirname(__DIR__));
 
+// Inclusion du fichier d'auto chargement de composer
+require ROOT_PATH.'/vendor/autoload.php';
+
 // Inclusion de dépendance du projet
 require ROOT_PATH.'/src/framework/mvc.php';
 require ROOT_PATH.'/src/config/config.php';
 // Enregistrement des fonctions d'autochargement des classes
 spl_autoload_register("autoloader");
+
+// Instanciation de klogger
+$logger = new \Katzgrau\KLogger\Logger(ROOT_PATH.'/logs');
 
 // Récupération du contrôleur
 if( isset($_GET['controller']) ) {
@@ -60,6 +66,8 @@ if(! file_exists($controllerPath)) {
     // Envoi vers le fichier erreur
     $controllerPath = ROOT_PATH.'/src/controllers/erreur.php';
 }
+
+$logger->info("Lancement de l'application");
 
 // Éxecution du contrôleur
 require $controllerPath;
