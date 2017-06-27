@@ -13,5 +13,19 @@ use PHPUnit\Framework\TestCase;
  */
 class InscriptionTest extends TestCase
 {
+/*
+    public function setUp()
+    {
 
+    }
+
+    public function testIfFormIsSubmitted()
+    {
+
+    }
+*/
+    public function testTrue()
+    {
+        $this->assertTrue(true);
+    }
 }

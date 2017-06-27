@@ -9,6 +9,15 @@
 // Démarrage de la session
 session_start();
 
+// Définition du dossier racine du projet
+define('ROOT_PATH', dirname(__DIR__));
+
+// Inclusion de dépendance du projet
+require ROOT_PATH.'/src/framework/mvc.php';
+require ROOT_PATH.'/src/config/config.php';
+// Enregistrement des fonctions d'autochargement des classes
+spl_autoload_register("autoloader");
+
 // Récupération du contrôleur
 if( isset($_GET['controller']) ) {
     $controllerName = $_GET['controller'];
@@ -28,7 +37,10 @@ $securedRoutes =
         "home-stagiaire" => "stagiaire"
     ];
 
-$role = isset($_SESSION["role"])?$_SESSION["role"]:"";
+// Handling user with OOP
+$user = getUser();
+
+$role = $user->getRole();
 
 // Si on tente d'accéder à une page sécurisée sans s'être identifié au
 // au préalable alors la route est modifiée pour afficher le formulaire de login
@@ -39,13 +51,6 @@ if (array_key_exists($controllerName, $securedRoutes) && $role != $securedRoutes
     );
     exit();
 }
-
-// Définition du dossier racine du projet
-define('ROOT_PATH', dirname(__DIR__));
-
-// Inclusion de dépendance du projet
-require ROOT_PATH.'/src/framework/mvc.php';
-require ROOT_PATH.'/src/config/config.php';
 
 // Définition du chemin du contrôleur
 $controllerPath = ROOT_PATH.'/src/controllers/'.$controllerName.'.php';

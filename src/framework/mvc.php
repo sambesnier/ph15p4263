@@ -64,3 +64,35 @@ function getPDO() {
         DB_USER,
         DB_PASS, $options);
 }
+
+/**
+ * Fonction d'auto chargement des classes utilisées par spl_autoload_register
+ * @param $className
+ * @throws Exception
+ */
+function autoloader($className)
+{
+    $path = ROOT_PATH."/src/classes/{$className}.php";
+    if (file_exists($path)) {
+        require_once $path;
+    } else {
+        throw new Exception("Le fichier $path ne peut être chargé");
+    }
+}
+
+/**
+ * Return the authenticated user
+ * @return User
+ */
+function getUser()
+{
+    if (isset($_SESSION["user"])) {
+        $user = unserialize($_SESSION["user"]);
+    } else {
+        $user = new User();
+        // Default user
+        $user->setUserName("Invité")->setRole("guest");
+        $_SESSION["user"] = serialize($user);
+    }
+    return $user;
+}

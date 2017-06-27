@@ -42,11 +42,12 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php
-                        $role = isset($_SESSION["role"])?$_SESSION["role"]:"";
-                        $userName = isset($_SESSION["userName"])?$_SESSION["userName"]:"Invité";
+                        $user = getUser();
+                        $role = $user->getRole();
+                        $userName = $user->getUserName();
                     ?>
                     <li class="navbar-text">Bonjour <?= $userName ?></li>
-                    <?php if (!empty($role)) : ?>
+                    <?php if (!empty($role) && $role != 'guest') : ?>
                         <?php if ($role == 'admin') : ?>
                             <li><a href="/?controller=home-admin">Accès admin</a></li>
                         <?php endif; ?>
